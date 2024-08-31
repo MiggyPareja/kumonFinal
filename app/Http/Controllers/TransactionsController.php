@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Transactions;
 use Illuminate\Http\Request;
 
 class TransactionsController extends Controller
@@ -11,7 +11,7 @@ class TransactionsController extends Controller
      */
     public function index()
     {
-        //
+        return view('Transactions');
     }
 
     /**
@@ -27,7 +27,11 @@ class TransactionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+
+        ]);
+        Transactions::create($validatedData);
+        return redirect()->route('Transactions.index');
     }
 
     /**
