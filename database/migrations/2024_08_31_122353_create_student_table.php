@@ -14,12 +14,11 @@ return new class extends Migration
     Schema::create('students', function (Blueprint $table) {
         $table->id(); // Primary key, auto-incrementing
         $table->string('student_name', 255); // Student Name
-        $table->enum('student_subject', ['Math', 'English', 'Math & English']); // Subject (single value)
-        $table->integer('student_id')->unique(); // Student ID with unique constraint
+        $table->enum('student_subject', ['Math', 'Reading', 'Math & Reading']); // Subject (single value)
+        $table->integer('student_id')->unique(); // Student ID with unique constraint //Length can be lessthan/equal to 11
         $table->date('enroll_date'); // Enroll date
         $table->double('amount_tbp'); // To be Paid
         $table->enum('status', ['C', 'A']); // Status (single value)
-        $table->date('payment_date')->nullable(); // Payment Date
         $table->enum('grade_level', [
             'PK-3', 'PK-2', 'PK-1', 'Kinder', 'Grade 1', 'Grade 2', 'Grade 3',
             'Grade 4', 'Grade 5', 'Grade 6', 'Grade 7', 'Grade 8', 'Grade 9',

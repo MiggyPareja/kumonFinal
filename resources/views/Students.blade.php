@@ -16,7 +16,11 @@
         <input type="text" id="student_name" name="student_name" required><br><br>
 
         <label for="student_subject">Student Subject:</label>
-        <input type="text" id="student_subject" name="student_subject" required><br><br>
+        <select name="student_subject" id="student_subject">
+            <option value="Math">Math</option>
+            <option value="Reading">Reading</option>
+            <option value="Math & Reading">Math & Reading</option>
+        </select> <br> <br>
 
         <label for="student_id">Student ID:</label>
         <input type="number" id="student_id" name="student_id" required><br><br>
@@ -24,18 +28,25 @@
         <label for="enroll_date">Enroll Date:</label>
         <input type="date" id="enroll_date" name="enroll_date" required><br><br>
 
-        <label for="amount_tbp">Amount to be Paid:</label>
-        <input type="number" step="0.01" id="amount_tbp" name="amount_tbp" required><br><br>
-
         <label for="status">Status:</label>
-        <input type="text" id="status" name="status" required><br><br>
+        <select name="status" id="status">
+            <option value="C">C</option>
+            <option value="A">A</option>
+        </select> <br> <br>
 
         <label for="payment_date">Payment Date:</label>
         <input type="date" id="payment_date" name="payment_date" required><br><br>
+        {{-- Should be automatic 25th of the month --}}
 
         <label for="grade_level">Grade Level:</label>
-        <input type="text" id="grade_level" name="grade_level" required><br><br>
+        <select name="grade_level" id="grade_level">
+            <option value="PK-3">PK-3</option>
+        </select> <br> <br>
 
+        <label for="amount_tbp">Amount to be Paid:</label>
+        <input type="number" step="0.01" id="amount_tbp" name="amount_tbp" required><br><br>
+        {{-- Should be automatic based on student subject/level --}}
+        
         <button type="submit">Add Student</button>
     </form>
 </body>

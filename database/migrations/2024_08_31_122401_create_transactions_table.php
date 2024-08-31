@@ -17,13 +17,12 @@ return new class extends Migration
         $table->enum('payment_method', ['Cash', 'Gcash', 'Bank']); // Payment method
         $table->string('teacher'); // Teacher associated with payment
         $table->double('payment_amount'); // Payment amount
-        $table->string('remarks', 255)->nullable(); // Remarks, made nullable
-        $table->date('next_date_of_payment')->nullable(); // Next date of payment, made nullable
+        $table->string('remarks', 255); // Remarks, made nullable // Add automatic remarks if payment amount  < amount-tbp //automatic input of 'Paid for 'payment_month'' if paid
+        $table->date('payment_month'); // Next date of payment, made nullable
         $table->softDeletes(); // Adds 'deleted_at' column for soft deletes
         $table->timestamps(); // Adds 'created_at' and 'updated_at' columns
     });
 }
-
 
     /**
      * Reverse the migrations.
