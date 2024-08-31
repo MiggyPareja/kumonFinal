@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Students;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -11,7 +11,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        return view('Students');
     }
 
     /**
@@ -27,7 +27,19 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'student_name' => 'required|string|max:255',
+            'student_subject' => 'required|string|max:255',
+            'student_id' => 'required|integer|unique:students',
+            'enroll_date' => 'required|date',
+            'amount_tbp' => 'required|numeric',
+            'status' => 'required|string|max:255',
+            'payment_date' => 'required|date',
+            'grade_level' => 'required|string|max:255',
+        ]);
+
+        Students::create($validatedData);
+        return redirect()->route('Students.index');
     }
 
     /**

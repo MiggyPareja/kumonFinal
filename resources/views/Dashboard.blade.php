@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-        
+        <a href="{{route('Students.index')}}">Students</a>
+        <a href="">Transactions</a>
 </body>
 </html>

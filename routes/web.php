@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TransactionsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -8,5 +10,6 @@ Route::get('/', function () {
 });
 
 
-Route::resource('Students', Dashboard::class);
-Route::resource('Transactions', Dashboard::class);
+Route::resource('Students', StudentController::class);
+Route::resource('Transactions', TransactionsController::class);
+Route::resource('Dashboard', Dashboard::class);
