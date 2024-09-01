@@ -11,17 +11,21 @@ return new class extends Migration
      */
     public function up(): void
 {
-    Schema::create('transaction', function (Blueprint $table) {
-        $table->id(); // Primary key, auto-incrementing
-        $table->date('date_of_payment'); // Date of payment
-        $table->enum('payment_method', ['Cash', 'Gcash', 'Bank']); // Payment method
-        $table->string('teacher'); // Teacher associated with payment
-        $table->double('payment_amount'); // Payment amount
-        $table->string('remarks', 255); // Remarks, made nullable // Add automatic remarks if payment amount  < amount-tbp //automatic input of 'Paid for 'payment_month'' if paid
-        $table->date('payment_month'); // Next date of paymente, Should turn red if payment_amount not matching required payment
-        $table->softDeletes(); // Adds 'deleted_at' column for soft deletes
-        $table->timestamps(); // Adds 'created_at' and 'updated_at' columns
-    });
+    Schema::create('transactions', function (Blueprint $table) {
+    $table->id(); // Primary key, auto-incrementing
+    $table->string('student_id', 12); // Foreign key referencing students table
+    $table->date('date_of_payment'); // Date of payment
+    $table->enum('payment_method', ['Cash', 'Gcash', 'Bank']); // Payment method
+    $table->string('teacher'); // Teacher associated with payment
+    $table->double('payment_amount'); // Payment amount
+    $table->string('remarks', 255)->nullable(); // Remarks, made nullable
+    $table->date('payment_month'); // Next date of payment
+    $table->softDeletes(); // Adds 'deleted_at' column for soft deletes
+    $table->timestamps(); // Adds 'created_at' and 'updated_at' columns
+
+    // Adding the foreign key constraint
+    $table->foreign('student_id')->references('student_id')->on('students')->onDelete('cascade');
+});
 }
 
     /**

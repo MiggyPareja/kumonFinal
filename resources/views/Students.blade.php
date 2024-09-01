@@ -22,9 +22,6 @@
             <option value="Math & Reading">Math & Reading</option>
         </select> <br> <br>
 
-        <label for="student_id">Student ID:</label>
-        <input type="number" id="student_id" name="student_id" required><br><br>
-
         <label for="enroll_date">Enroll Date:</label>
         <input type="date" id="enroll_date" name="enroll_date" required><br><br>
 
@@ -46,7 +43,7 @@
         <label for="amount_tbp">Amount to be Paid:</label>
         <input type="number" step="0.01" id="amount_tbp" name="amount_tbp" required><br><br>
         {{-- Should be automatic based on student subject/level --}}
-        
+
         <button type="submit">Add Student</button>
     </form>
 </body>
