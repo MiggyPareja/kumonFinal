@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Transactions;
+use App\Models\Students;
 use Illuminate\Http\Request;
 
 class TransactionsController extends Controller
@@ -19,20 +21,35 @@ class TransactionsController extends Controller
      */
     public function create()
     {
-        //
+        // Fetch all students from the database
+        $students = Students::select('id', 'full_name')->get();
+
+        // Pass the students data to the view
+        return view('Transactions.index', compact('students'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $validatedData = $request->validate([
+{
+    // Validate the request data
+    $validatedData = $request->validate([
+        'student_id' => 'required|string',
+        'date_of_payment' => 'required|date',
+        'payment_method' => 'required|string',
+        'teacher' => 'required|string',
+        'reference_number' => 'required|numeric',
+        'payment_amount' => 'required|numeric|min:0',
+        'remarks' => 'nullable|string'
+    ]);
 
-        ]);
-        Transactions::create($validatedData);
-        return redirect()->route('Transactions.index');
-    }
+
+    Transactions::create($validatedData);
+
+    
+    return redirect()->route('Transactions.index');
+}
 
     /**
      * Display the specified resource.
@@ -66,3 +83,4 @@ class TransactionsController extends Controller
         //
     }
 }
+

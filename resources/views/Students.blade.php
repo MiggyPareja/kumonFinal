@@ -38,6 +38,21 @@
         <label for="grade_level">Grade Level:</label>
         <select name="grade_level" id="grade_level">
             <option value="PK-3">PK-3</option>
+            <option value="PK-2">PK-2</option>
+            <option value="PK-1">PK-1</option>
+            <option value="Kinder">Kinder</option>
+            <option value="Grade 1">Grade 1</option>
+            <option value="Grade 2">Grade 2</option>
+            <option value="Grade 3">Grade 3</option>
+            <option value="Grade 4">Grade 4</option>
+            <option value="Grade 5">Grade 5</option>
+            <option value="Grade 6">Grade 6</option>
+            <option value="Grade 7">Grade 7</option>
+            <option value="Grade 8">Grade 8</option>
+            <option value="Grade 9">Grade 9</option>
+            <option value="Grade 10">Grade 10</option>
+            <option value="Grade 11">Grade 11</option>
+            <option value="Grade 12">Grade 12</option>
         </select> <br> <br>
 
         <label for="amount_tbp">Amount to be Paid:</label>

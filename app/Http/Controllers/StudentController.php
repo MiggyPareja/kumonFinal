@@ -28,12 +28,12 @@ class StudentController extends Controller
 
     // Get the last student ID for this year, if it exists
     $lastStudent = Students::where('student_id', 'LIKE', $year . '%')
-                          ->orderBy('student_id', 'desc')
-                          ->first();
+        ->orderBy('student_id', 'desc')
+        ->first();
 
     // Determine the next sequence number
     if ($lastStudent) {
-        // Extract the sequence number from the last ID (e.g., 201500000001 -> 1)
+        // Extract the sequence number from the last ID
         $lastSequence = (int)substr($lastStudent->student_id, 4);
         $newSequence = $lastSequence + 1;
     } else {

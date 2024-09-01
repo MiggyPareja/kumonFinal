@@ -8,6 +8,6 @@
 </head>
 <body>
         <a href="{{route('Students.index')}}">Students</a>
-        <a href="">Transactions</a>
+        <a href="{{route('Transactions.index')}}">Transactions</a>
 </body>
 </html>

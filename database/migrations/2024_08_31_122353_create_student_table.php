@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
 {
     Schema::create('students', function (Blueprint $table) {
-    $table->string('student_id', 12)->primary(); // Primary key, 12-character string
+    $table->string('student_id')->primary(); // Primary key, 12-character string
     $table->string('student_name', 255); // Student Name
     $table->enum('student_subject', ['Math', 'Reading', 'Math & Reading']); // Subject (single value)
     $table->date('enroll_date'); // Enroll date

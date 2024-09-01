@@ -13,9 +13,10 @@ return new class extends Migration
 {
     Schema::create('transactions', function (Blueprint $table) {
     $table->id(); // Primary key, auto-incrementing
-    $table->string('student_id', 12); // Foreign key referencing students table
+    $table->string('student_id'); // Foreign key referencing students table
     $table->date('date_of_payment'); // Date of payment
     $table->enum('payment_method', ['Cash', 'Gcash', 'Bank']); // Payment method
+    $table->string('reference_number')->nullable(); // If payment method is Cash automatically readonly
     $table->string('teacher'); // Teacher associated with payment
     $table->double('payment_amount'); // Payment amount
     $table->string('remarks', 255)->nullable(); // Remarks, made nullable
