@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Students</title>
 </head>
 <body>
     <h2>Welcome to Students</h2>
@@ -12,8 +12,10 @@
 
     <form action="{{ route('Students.store') }}" method="POST">
         @csrf
-        <label for="student_name">Student Name:</label>
-        <input type="text" id="student_name" name="student_name" required><br><br>
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" required><br><br>
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required><br><br>
 
         <label for="student_subject">Student Subject:</label>
         <select name="student_subject" id="student_subject">
@@ -37,22 +39,23 @@
 
         <label for="grade_level">Grade Level:</label>
         <select name="grade_level" id="grade_level">
-            <option value="PK-3">PK-3</option>
-            <option value="PK-2">PK-2</option>
-            <option value="PK-1">PK-1</option>
-            <option value="Kinder">Kinder</option>
-            <option value="Grade 1">Grade 1</option>
-            <option value="Grade 2">Grade 2</option>
-            <option value="Grade 3">Grade 3</option>
-            <option value="Grade 4">Grade 4</option>
-            <option value="Grade 5">Grade 5</option>
-            <option value="Grade 6">Grade 6</option>
-            <option value="Grade 7">Grade 7</option>
-            <option value="Grade 8">Grade 8</option>
-            <option value="Grade 9">Grade 9</option>
-            <option value="Grade 10">Grade 10</option>
-            <option value="Grade 11">Grade 11</option>
-            <option value="Grade 12">Grade 12</option>
+            <option value="PK3">PK3</option>
+            <option value="PK2">PK2</option>
+            <option value="PK1">PK1</option>
+            <option value="P1">P1</option>
+            <option value="P1">P1</option>
+            <option value="P2">P2</option>
+            <option value="P3">P3</option>
+            <option value="P4">P4</option>
+            <option value="P5">P5</option>
+            <option value="P6">P6</option>
+            <option value="P7">P7</option>
+            <option value="P8">P8</option>
+            <option value="P9">P9</option>
+            <option value="P10">P10</option>
+            <option value="P11">P11</option>
+            <option value="P12">P12</option>
+            <option value="P13">P13</option>
         </select> <br> <br>
 
         <label for="amount_tbp">Amount to be Paid:</label>

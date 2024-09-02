@@ -11,21 +11,20 @@ class TransactionsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+   public function index()
     {
-        return view('Transactions');
-    }
+     $students = Students::select('student_id','last_name','first_name')->get();
+    $transactions = Transactions::all();
+     return view('Transactions', compact('students','transactions'));
+     }
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        // Fetch all students from the database
-        $students = Students::select('id', 'full_name')->get();
 
-        // Pass the students data to the view
-        return view('Transactions.index', compact('students'));
     }
 
     /**
@@ -35,19 +34,20 @@ class TransactionsController extends Controller
 {
     // Validate the request data
     $validatedData = $request->validate([
-        'student_id' => 'required|string',
+        'student_id' => 'required',
         'date_of_payment' => 'required|date',
         'payment_method' => 'required|string',
         'teacher' => 'required|string',
         'reference_number' => 'required|numeric',
         'payment_amount' => 'required|numeric|min:0',
-        'remarks' => 'nullable|string'
+        'remarks' => 'nullable|string',
+        'or_number' => 'required',
     ]);
 
 
     Transactions::create($validatedData);
 
-    
+
     return redirect()->route('Transactions.index');
 }
 

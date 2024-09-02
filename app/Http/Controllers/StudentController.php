@@ -42,7 +42,7 @@ class StudentController extends Controller
     }
 
     // Pad the sequence number with leading zeros
-    $newSequencePadded = str_pad($newSequence, 7, '0', STR_PAD_LEFT);
+    $newSequencePadded = str_pad($newSequence, 9, '0', STR_PAD_LEFT);
 
     // Combine year and padded sequence number to form the new ID
     $newStudentId = $year . $newSequencePadded;
@@ -60,7 +60,8 @@ class StudentController extends Controller
     // Create the new student record
         Students::create([
         'student_id' => $studentId,
-        'student_name' => $request->input('student_name'),
+        'last_name' => $request->input('last_name'),
+        'first_name' => $request->input('first_name'),
         'student_subject' => $request->input('student_subject'),
         'enroll_date' => $request->input('enroll_date'),
         'amount_tbp' => $request->input('amount_tbp'),

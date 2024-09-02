@@ -15,12 +15,13 @@ return new class extends Migration
     $table->id(); // Primary key, auto-incrementing
     $table->string('student_id'); // Foreign key referencing students table
     $table->date('date_of_payment'); // Date of payment
-    $table->enum('payment_method', ['Cash', 'Gcash', 'Bank']); // Payment method
+    $table->enum('payment_method', ['Cash', 'GCash1', 'GCash2','BDO','BPI']); // Payment method
     $table->string('reference_number')->nullable(); // If payment method is Cash automatically readonly
+            $table->string('or_number')->nullable(); //temp nulable
     $table->string('teacher'); // Teacher associated with payment
     $table->double('payment_amount'); // Payment amount
     $table->string('remarks', 255)->nullable(); // Remarks, made nullable
-    $table->date('payment_month'); // Next date of payment
+    $table->date('payment_month')->nullable(); // Next date of payment
     $table->softDeletes(); // Adds 'deleted_at' column for soft deletes
     $table->timestamps(); // Adds 'created_at' and 'updated_at' columns
 
