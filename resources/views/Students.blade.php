@@ -79,6 +79,7 @@
                     <th>Amount To be paid</th>
                     <th>Status</th>
                     <th>Grade Level</th>
+                    <th>Date of Next Due</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -92,6 +93,7 @@
                         <td>{{ $student->amount_tbp }}</td>
                         <td>{{ $student->status }}</td>
                         <td>{{ $student->grade_level }}</td>
+                        <td>{{$student->payment_date}}</td>
                         <td>
                             <a href="{{route('Transactions.index')}}">Add Transaction</a>
                             <a href="">Edit Student</a>

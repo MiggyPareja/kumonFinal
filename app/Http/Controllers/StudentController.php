@@ -69,6 +69,7 @@ class StudentController extends Controller
         'amount_tbp' => $request->input('amount_tbp'),
         'status' => $request->input('status'),
         'grade_level' => $request->input('grade_level'),
+        'payment_date' => $request ->input('payment_date')
     ]);
 
         return redirect()->route('Students.index');
