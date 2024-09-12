@@ -9,5 +9,17 @@
 <body>
         <a href="{{route('Students.index')}}">Students</a>
         <a href="{{route('Transactions.index')}}">Transactions</a>
+        <a href="">Teachers</a>
+        <a href="">Reports</a>
+        <a href="">Log Out</a>
+
+        <h2>Students Due</h2>
+
+        <table>
+            <th>TEST</th>
+            <tbody>
+                <td>MIgGY</td>
+            </tbody>
+        </table>
 </body>
 </html>

@@ -22,6 +22,9 @@
         </select>
         <br><br>
 
+        <label for="">Payment fot the Month of:</label>
+        <input type="text"> <br><br>
+
         <label for="date_of_payment">Date of Payment</label>
         <input type="date" name="date_of_payment" id="date_of_payment" required><br><br>
 
@@ -46,6 +49,9 @@
         <label for="payment_amount">Payment Amount:</label>
         <input type="number" id="payment_amount" name="payment_amount" required><br><br>
 
+        <label for="">Payment Due:</label>
+        <input type="text" name="" id=""> <br><br>
+
         <label for="remarks">Remarks</label>
         <textarea name="remarks" id="remarks" cols="30" rows="10"></textarea><br><br>
 
@@ -66,6 +72,7 @@
                     <th>OR Number</th>
                     <th>Payment Amount</th>
                     <th>Remarks</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -80,6 +87,10 @@
                         <td>{{ $transaction->or_number }}</td>
                         <td>{{ $transaction->payment_amount }}</td>
                         <td>{{ $transaction->remarks }}</td>
+                        <td>
+                            <a href="">Edit Transaction</a>
+                            <a href="">Archive Transaction</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

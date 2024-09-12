@@ -17,7 +17,7 @@ return new class extends Migration
     $table->date('date_of_payment'); // Date of payment
     $table->enum('payment_method', ['Cash', 'GCash1', 'GCash2','BDO','BPI']); // Payment method
     $table->string('reference_number')->nullable(); // If payment method is Cash automatically readonly
-            $table->string('or_number')->nullable(); //temp nulable
+    $table->string('or_number')->nullable(); //temp nulable
     $table->string('teacher'); // Teacher associated with payment || Automation
     $table->double('payment_amount'); // Payment amount
     $table->string('remarks', 255)->nullable(); // Remarks, made nullable

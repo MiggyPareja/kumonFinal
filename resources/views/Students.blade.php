@@ -62,7 +62,7 @@
         {{-- Should be automatic 25th of the month --}}
 
         <label for="amount_tbp">Amount to be Paid:</label>
-        <input type="number" step="0.01" id="amount_tbp" name="amount_tbp" required readonly><br><br>
+        <input type="number" id="amount_tbp" name="amount_tbp" required readonly><br><br>
         {{-- Should be automatic based on student subject/level --}}
 
         <button type="submit">Add Student</button>
