@@ -19,6 +19,7 @@ class CreateDueStudentTable extends Migration
             $table->decimal('balance', 8, 2);
             $table->date('month_of');
             $table->integer('no_of_months')->default(1);
+            $table->softDeletes();
             $table->timestamps();
 
             // Define the foreign key constraint
