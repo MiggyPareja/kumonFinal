@@ -26,6 +26,10 @@ return new class extends Migration
                 'P10', 'P11', 'P12' ,'P13'
             ]); // Grade Level
             $table->date('payment_date'); // Payment date
+            $table->decimal('balance');
+            ;
+            $table->date('month_of');
+            $table->integer('no_of_months')->default(1);
             $table->softDeletes(); // Adds a 'deleted_at' column for soft deletes
             $table->timestamps(); // Adds 'created_at' and 'updated_at' columns
         });

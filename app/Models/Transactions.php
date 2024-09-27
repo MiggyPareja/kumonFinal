@@ -24,7 +24,8 @@ class Transactions extends Model
         'payment_amount',
         'remarks',
         'next_date_of_payment',
-        'or_number'
+        'or_number',
+        'payment_month'
     ];
 
     // The attributes that should be cast to native types

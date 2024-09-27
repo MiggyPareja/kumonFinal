@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const subjectSelect = document.getElementById("student_subject");
     const gradeSelect = document.getElementById("grade_level");
     const amountInput = document.getElementById("amount_tbp");
+    const balanceInput = document.getElementById("balance"); // Reference to the balance input
     const paymentDateInput = document.getElementById("payment_date");
 
     // Function to calculate the amount
@@ -46,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         amountInput.value = amount.toFixed(2);
+        balanceInput.value = amount.toFixed(2); // Update balance to match the new amount
     }
 
     // Function to set the payment date to the 25th of the next month, with explicit time set to avoid timezone issues
@@ -62,13 +64,9 @@ document.addEventListener("DOMContentLoaded", function () {
         paymentDateInput.value = formattedDate;
     }
 
-
     subjectSelect.addEventListener("change", calculateAmount);
     gradeSelect.addEventListener("change", calculateAmount);
 
-
-    calculateAmount();
-
-
-    setNextMonthPaymentDate();
+    calculateAmount(); // Initial calculation on page load
+    setNextMonthPaymentDate(); // Set initial payment date
 });

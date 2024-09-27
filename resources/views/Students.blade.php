@@ -12,61 +12,70 @@
     <h2>Welcome to Students</h2>
     <a href="{{route('Dashboard.index')}}">Dashboard</a>
 
-    <form action="{{ route('Students.store') }}" method="POST">
-        @csrf
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name" required><br><br>
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" required><br><br>
+<form action="{{ route('Students.store') }}" method="POST">
+    @csrf
+    <label for="last_name">Last Name:</label>
+    <input type="text" id="last_name" name="last_name" required><br><br>
 
-        <label for="student_subject">Student Subject:</label>
-        <select name="student_subject" id="student_subject">
-            <option value="Math">Math</option>
-            <option value="Reading">Reading</option>
-            <option value="Math & Reading">Math & Reading</option>
-        </select> <br> <br>
+    <label for="first_name">First Name:</label>
+    <input type="text" id="first_name" name="first_name" required><br><br>
 
-         <label for="grade_level">Grade Level:</label>
-        <select name="grade_level" id="grade_level">
-            <option value="PK3">PK3</option>
-            <option value="PK2">PK2</option>
-            <option value="PK1">PK1</option>
-            <option value="P1">P1</option>
-            <option value="P1">P1</option>
-            <option value="P2">P2</option>
-            <option value="P3">P3</option>
-            <option value="P4">P4</option>
-            <option value="P5">P5</option>
-            <option value="P6">P6</option>
-            <option value="P7">P7</option>
-            <option value="P8">P8</option>
-            <option value="P9">P9</option>
-            <option value="P10">P10</option>
-            <option value="P11">P11</option>
-            <option value="P12">P12</option>
-            <option value="P13">P13</option>
-        </select> <br> <br>
+    <label for="student_subject">Student Subject:</label>
+    <select name="student_subject" id="student_subject">
+        <option value="Math">Math</option>
+        <option value="Reading">Reading</option>
+        <option value="Math & Reading">Math & Reading</option>
+    </select><br><br>
 
-        <label for="status">Status:</label>
-        <select name="status" id="status">
-            <option value="C">C</option>
-            <option value="A">A</option>
-        </select> <br> <br>
+    <label for="grade_level">Grade Level:</label>
+    <select name="grade_level" id="grade_level">
+        <option value="PK3">PK3</option>
+        <option value="PK2">PK2</option>
+        <option value="PK1">PK1</option>
+        <option value="P1">P1</option>
+        <option value="P2">P2</option>
+        <option value="P3">P3</option>
+        <option value="P4">P4</option>
+        <option value="P5">P5</option>
+        <option value="P6">P6</option>
+        <option value="P7">P7</option>
+        <option value="P8">P8</option>
+        <option value="P9">P9</option>
+        <option value="P10">P10</option>
+        <option value="P11">P11</option>
+        <option value="P12">P12</option>
+        <option value="P13">P13</option>
+    </select><br><br>
 
-        <label for="enroll_date">Enroll Date:</label>
-        <input type="date" id="enroll_date" name="enroll_date" required><br><br>
+    <label for="status">Status:</label>
+    <select name="status" id="status">
+        <option value="C">C</option>
+        <option value="A">A</option>
+    </select><br><br>
+
+    <label for="enroll_date">Enroll Date:</label>
+    <input type="date" id="enroll_date" name="enroll_date" required><br><br>
+
+    <label for="payment_date">Payment Date:</label>
+    <input type="date" id="payment_date" name="payment_date" required><br><br>
+    {{-- Should be automatic 25th of the month --}}
+
+    <label for="amount_tbp">Amount to be Paid:</label>
+    <input type="number" id="amount_tbp" name="amount_tbp" required readonly><br><br>
+
+    <label for="balance">Balance:</label>
+    <input type="number" id="balance" name="balance" ><br><br>
+
+    <button type="submit">Add Student</button>
+    <label for="no_of_months" hidden>No. of Months:</label>
+    <input type="number" id="no_of_months" name="no_of_months" hidden ><br><br>
+
+    <label for="month_of"hidden>Month of:</label>
+    <input type="text" id="month_of" name="month_of" hidden><br><br>
 
 
-        <label for="payment_date">Payment Date:</label>
-        <input type="date" id="payment_date" name="payment_date" required><br><br>
-        {{-- Should be automatic 25th of the month --}}
+</form>
 
-        <label for="amount_tbp">Amount to be Paid:</label>
-        <input type="number" id="amount_tbp" name="amount_tbp" required readonly><br><br>
-        {{-- Should be automatic based on student subject/level --}}
-
-        <button type="submit">Add Student</button>
-    </form>
 
     {{-- Table --}}
      <table class="table table-bordered">
@@ -80,6 +89,9 @@
                     <th>Status</th>
                     <th>Grade Level</th>
                     <th>Date of Next Due</th>
+                    <th>Balance</th>
+                    <th>No. Of Months</th>
+                    <th>Month Of</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -94,8 +106,10 @@
                         <td>{{ $student->status }}</td>
                         <td>{{ $student->grade_level }}</td>
                         <td>{{$student->payment_date}}</td>
+                        <td>{{$student->balance}}</td>
+                        <td>{{$student->no_of_months}}</td>
+                        <td>{{$student->month_of}}</td>
                         <td>
-                            <a href="{{route('Transactions.index')}}">Add Transaction</a>
                             <a href="">Edit Student</a>
                             <a href="">Archive Student</a>
                         </td>

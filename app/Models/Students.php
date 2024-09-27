@@ -32,6 +32,9 @@ class Students extends Model
         'status',
         'payment_date',
         'grade_level',
+        'balance',
+        'month_of',
+        'no_of_months'
     ];
 
     /**
@@ -43,5 +46,8 @@ class Students extends Model
         'enroll_date' => 'date',
         'payment_date' => 'date',
         'amount_tbp' => 'double',
+        'balance' => 'decimal:2',
+        'month_of' => 'date',
+        'no_of_months' => 'integer'
     ];
 }

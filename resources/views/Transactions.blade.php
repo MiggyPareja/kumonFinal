@@ -14,6 +14,7 @@
         @csrf
 
         <label for="student_id">Student:</label>
+        {{-- <input type="text" name="student_id" id="student_id" > --}}
         <select name="student_id" id="student_id">
             <option value="" disabled selected>Select Student</option>
             @foreach($students as $student)
@@ -22,11 +23,17 @@
         </select>
         <br><br>
 
-        <label for="">Payment fot the Month of:</label>
-        <input type="text"> <br><br>
+         <label for="teacher">Teacher</label>
+        <input type="text" name="teacher" id="teacher" required><br><br>
+
+        <label for="">Payment for the Month of:</label>
+        <input type="date" name="payment_month" id="payment_month" value="{{$payment_month}}"> <br><br>
 
         <label for="date_of_payment">Date of Payment</label>
         <input type="date" name="date_of_payment" id="date_of_payment" required><br><br>
+
+         <label for="or_number">OR Number</label>
+        <input type="text" name="or_number" id="or_number"> <br><br>
 
         <label for="payment_method">Payment Method</label>
         <select name="payment_method" id="payment_method">
@@ -37,20 +44,14 @@
             <option value="BPI">BPI</option>
         </select><br><br>
 
-        <label for="teacher">Teacher</label>
-        <input type="text" name="teacher" id="teacher" required><br><br>
+        <label for="">Payment Due:</label>
+        <input type="text" name="payment_due" id="payment_due" value="{{$payment_amount}}"> <br><br>
+
+        <label for="payment_amount">Payment Amount:</label>
+        <input type="number" id="payment_amount" name="payment_amount" ><br><br>
 
         <label for="reference_number">Reference Number</label>
         <input type="number" name="reference_number" id="reference_number" required> <br><br>
-
-        <label for="or_number">OR Number</label>
-        <input type="text" name="or_number" id="or_number"> <br><br>
-
-        <label for="payment_amount">Payment Amount:</label>
-        <input type="number" id="payment_amount" name="payment_amount" required><br><br>
-
-        <label for="">Payment Due:</label>
-        <input type="text" name="" id=""> <br><br>
 
         <label for="remarks">Remarks</label>
         <textarea name="remarks" id="remarks" cols="30" rows="10"></textarea><br><br>
@@ -63,7 +64,6 @@
     <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Student</th>
                     <th>Date of Payment</th>
                     <th>Payment Method</th>
@@ -71,6 +71,7 @@
                     <th>Reference Number</th>
                     <th>OR Number</th>
                     <th>Payment Amount</th>
+                    <th>Payment Month</th>
                     <th>Remarks</th>
                     <th>Actions</th>
                 </tr>
@@ -78,7 +79,6 @@
             <tbody>
                 @foreach($transactions as $transaction)
                     <tr>
-                        <td>{{ $transaction->id }}</td>
                         <td>{{ $transaction->student_id }}</td>
                         <td>{{ $transaction->date_of_payment }}</td>
                         <td>{{ $transaction->payment_method }}</td>
@@ -86,6 +86,7 @@
                         <td>{{ $transaction->reference_number }}</td>
                         <td>{{ $transaction->or_number }}</td>
                         <td>{{ $transaction->payment_amount }}</td>
+                        <td>{{ $transaction->payment_month }}</td>
                         <td>{{ $transaction->remarks }}</td>
                         <td>
                             <a href="">Edit Transaction</a>

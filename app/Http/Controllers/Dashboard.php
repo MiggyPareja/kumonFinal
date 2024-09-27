@@ -4,23 +4,33 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Students;
-use App\Models\DueStudents;
+use App\Models\Transactions;
 use Carbon\Carbon;
 
 class Dashboard extends Controller
 {
     public function index()
     {
-        $studentsDue = DueStudents::all();
+        $studentsDue = Students::all();
         return view('Dashboard',compact('studentsDue'));
+    }
+    public function pass(Request $request)
+    {
+    $transactions = Transactions::all();
+    $students = Students::all();
+    $student_id = $request->input('student_id');
+    $payment_month = $request->input('payment_month');
+    $payment_amount = $request->input('payment_amount');
+
+    return view('Transactions', compact('student_id', 'payment_month', 'payment_amount','students','transactions'));
     }
 
     public function create()
     {
         // Retrieve all students that are eligible for dues
-        $students = Students::where('status', 'C') // Assuming 'C' means active students
-                           ->whereNotNull('amount_tbp') // Ensure they have an amount to be paid
-                           ->whereNotNull('payment_date') // Ensure there is a payment date
+        $students = Students::where('status', 'C')
+                           ->whereNotNull('balance')
+                           ->whereNotNull('month_of')
                            ->get();
 
         //  Prepare due_student entries

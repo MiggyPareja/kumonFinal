@@ -27,6 +27,15 @@ class TransactionsController extends Controller
 
     }
 
+    public function pass(Request $request)
+    {
+        $student_id = $request->input('student_id');
+    $payment_month = $request->input('payment_month');
+    $payment_amount = $request->input('payment_amount');
+
+    return view('Transactions', compact('student_id', 'payment_month', 'payment_amount'));
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -42,6 +51,7 @@ class TransactionsController extends Controller
         'payment_amount' => 'required|numeric|min:0',
         'remarks' => 'nullable|string',
         'or_number' => 'required',
+        'payment_month' => 'required',
     ]);
 
 

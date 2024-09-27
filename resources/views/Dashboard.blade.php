@@ -21,21 +21,21 @@
         <thead>
             <tr>
                 <th>Student ID</th>
+                <th>Amount to be Paid</th>
                 <th>Balance</th>
                 <th>Month Of</th>
-                <th>No. of Months</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach($studentsDue as $student)
             <tr>
-                <td>{{ $student->student_id }}</td>
+                <td><a href="">{{ $student->student_id }}-{{ $student->last_name }},{{ $student->first_name }}</a></td>
+                <td>{{$student->amount_tbp}}</td>
                 <td>{{ $student->balance }}</td>
-                <td>{{ $student->month_of }}</td>
-                <td>{{$student->no_of_months}}}</td>
+                <td>{{ \Carbon\Carbon::parse($student->month_of)->format('F Y') }}</td>
                 <td>
-                    <a href="{{route('Transactions.index')}}">Add Transaction</a>
+                    <a href="{{route('Dashboard.pass',['student_id' => $student->student_id, 'payment_month' => $student->month_of, 'payment_amount' => $student->balance])}}">Add Transaction</a>
                 </td>
             </tr>
             @endforeach

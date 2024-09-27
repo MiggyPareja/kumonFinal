@@ -55,12 +55,20 @@ class StudentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-         $studentId = $this->generateStudentId();
+public function store(Request $request)
+{
+    // Generate student ID
+    $studentId = $this->generateStudentId();
 
-    // Create the new student record
-        Students::create([
+
+    $no_of_months = 1;
+
+
+    $currentDate = Carbon::now();
+    $nextMonth = $currentDate->addMonth()->format('F');
+
+    // Create the new student record with all the fields, including the auto-filled ones
+    Students::create([
         'student_id' => $studentId,
         'last_name' => $request->input('last_name'),
         'first_name' => $request->input('first_name'),
@@ -69,11 +77,15 @@ class StudentController extends Controller
         'amount_tbp' => $request->input('amount_tbp'),
         'status' => $request->input('status'),
         'grade_level' => $request->input('grade_level'),
-        'payment_date' => $request ->input('payment_date')
+        'payment_date' => $request->input('payment_date'),
+        'no_of_months' => $no_of_months,
+        'month_of' => $nextMonth,
+        'balance' => $request->input('balance'),
     ]);
 
-        return redirect()->route('Students.index');
-    }
+    // Redirect to the Students index page after successful creation
+    return redirect()->route('Students.index');
+}
 
     /**
      * Display the specified resource.
