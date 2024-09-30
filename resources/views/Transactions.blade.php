@@ -44,8 +44,8 @@
             <option value="BPI">BPI</option>
         </select><br><br>
 
-        <label for="">Payment Due:</label>
-        <input type="text" name="payment_due" id="payment_due" value="{{$payment_amount}}"> <br><br>
+        {{-- <label for="">Payment Due:</label>
+        <input type="text" name="payment_due" id="payment_due" value="{{$payment_amount}}"> <br><br> --}}
 
         <label for="payment_amount">Payment Amount:</label>
         <input type="number" id="payment_amount" name="payment_amount" ><br><br>
