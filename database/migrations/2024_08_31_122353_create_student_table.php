@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('railway.students', function (Blueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->string('student_id')->primary(); // Primary key, 13-character string
             $table->string('last_name', 255);
             $table->string('first_name', 255);
