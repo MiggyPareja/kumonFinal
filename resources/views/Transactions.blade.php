@@ -26,8 +26,8 @@
          <label for="teacher">Teacher</label>
         <input type="text" name="teacher" id="teacher" required><br><br>
 
-        <label for="">Payment for the Month of:</label>
-        <input type="date" name="payment_month" id="payment_month" value="{{$payment_month}}"> <br><br>
+        {{-- <label for="">Payment for the Month of:</label>
+        <input type="date" name="payment_month" id="payment_month" value="{{$payment_month}}"> <br><br> --}}
 
         <label for="date_of_payment">Date of Payment</label>
         <input type="date" name="date_of_payment" id="date_of_payment" required><br><br>
