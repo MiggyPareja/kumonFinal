@@ -13,7 +13,7 @@
     <a href="">Reports</a>
     <a href="">Log Out</a>
 
-    <a href="{{route('Dashboard.create')}}">Generate Due</a>
+    {{-- <a href="{{route('Dashboard.create')}}">Generate Due</a> --}}
 
     <h2>Students Due</h2>
 
